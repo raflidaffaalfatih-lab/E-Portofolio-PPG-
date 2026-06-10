@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1200" />
+  <title>Modul Ajar – PPG Prajabatan 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="icon" type="image/png" href="logo-ust.png.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    .detail-section {
+      padding-top: 130px;
+      padding-bottom: 100px;
+      background: linear-gradient(180deg, var(--white) 0%, var(--bg-alt) 100%);
+      min-height: 100vh;
+      position: relative;
+    }
+    .detail-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 500px;
+      background: radial-gradient(circle at top right, hsl(258,70%,90%,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--purple-dark);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 2.5rem;
+      transition: var(--transition);
+      background: var(--purple-soft);
+      padding: 0.5rem 1.2rem;
+      border-radius: 99px;
+    }
+    .back-btn:hover {
+      background: var(--purple);
+      color: var(--white);
+      transform: translateX(-5px);
+    }
+    .rpp-container {
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 4rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 1;
+    }
+    .rpp-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .rpp-header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-top: 0.75rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .rpp-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .rpp-meta span { display: flex; align-items: center; gap: 0.5rem; }
+    .rpp-content h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 3.5rem 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .rpp-content h2::before {
+      content: '';
+      width: 4px;
+      height: 1.2em;
+      background: var(--purple);
+      border-radius: 2px;
+    }
+    .rpp-content p {
+      margin-bottom: 1.25rem;
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+    .info-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .info-table td {
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 1rem;
+    }
+    .info-table tr:last-child td { border-bottom: none; }
+    .info-table td:first-child {
+      background: rgba(258, 80%, 95%, 0.4);
+      font-weight: 700;
+      color: var(--purple-dark);
+      width: 35%;
+    }
+    .download-card {
+      background: linear-gradient(135deg, var(--purple-soft) 0%, hsl(258,60%,90%) 100%);
+      border: 1px solid var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4rem;
+      box-shadow: var(--shadow-md);
+    }
+    .download-info h4 { 
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem; 
+    }
+    .btn-download {
+      background: var(--dark-accent);
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .btn-download:hover {
+      background: var(--purple);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(103, 61, 230, 0.3);
+    }
+    .pdf-viewer-container {
+      width: 100%;
+      height: 800px;
+      margin: 3rem 0;
+      border: 1px dashed var(--purple-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: #fafafa;
+      position: relative;
+    }
+    .pdf-viewer-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .pdf-fallback {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <!-- ══════════════════════════════════════════════
+       PRELOADER / INTRO ANIMATION
+  ══════════════════════════════════════════════ -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">
+        <img src="logo-ust.png.jpg" alt="Logo UMS" class="preloader-logo-img" />
+      </div>
+      <div class="preloader-text">
+        <span class="preloader-name">Rafli Daffa Al Fatih</span>
+        <span class="preloader-sub">PPG Prajabatan 2026</span>
+      </div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar" id="preloaderBar"></div>
+      </div>
+      <p class="preloader-hint">Memuat Portofolio...</p>
+    </div>
+    <div class="preloader-bg-text">PJOK</div>
+  </div>
+
+  <div class="page-transition" id="pageTransition"></div>
+
+  <!-- NAVBAR (REUSED) -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-brand">
+        <img src="logo-ust.png.jpg" alt="Logo UMS" class="nav-logo-img" />
+        <div class="nav-brand-text">
+          <span class="nav-univ">Universitas Muhammadiyah Surakarta</span>
+          <span class="nav-sub">PPG Prajabatan 2026</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#home" class="nav-link">Beranda</a></li>
+        <li><a href="index.html#profil" class="nav-link">Profil</a></li>
+        <li class="nav-dropdown">
+          <a href="index.html#artefak" class="nav-link nav-dropdown-toggle">
+            Artefak <i class="fa-solid fa-chevron-down nav-dropdown-icon"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="perangkat-ajar.html">📋 Modul Ajar</a></li>
+            <li><a href="media.html">💻 Media Pembelajaran</a></li>
+            <li class="dropdown-submenu">
+              <a href="media-pembelajaran.html" style="justify-content: space-between;">
+                <span>🔄 Siklus</span>
+                <i class="fa-solid fa-chevron-right nav-dropdown-icon" style="font-size: 0.55rem; margin-left: 0.5rem;"></i>
+              </a>
+              <ul class="submenu-menu">
+                <li><a href="media-pembelajaran.html?siklus=1">Siklus 1</a></li>
+                <li><a href="media-pembelajaran.html?siklus=2">Siklus 2</a></li>
+                <li><a href="media-pembelajaran.html?siklus=3">Siklus 3</a></li>
+              </ul>
+            </li>
+            <li><a href="analisis-refleksi.html">🔍 Analisis & Refleksi</a></li>
+            <li><a href="hasil-kerja.html">📝 Hasil Kerja</a></li>
+<li class="dropdown-submenu">
+  <a href="penilaian.html" style="justify-content: space-between;">
+    <span>⭐ Penilaian</span>
+    <i class="fa-solid fa-chevron-right nav-dropdown-icon" style="font-size: 0.55rem; margin-left: 0.5rem;"></i>
+  </a>
+  <ul class="submenu-menu">
+    <li><a href="penilaian.html?siklus=1">Penilaian Siklus 1</a></li>
+    <li><a href="penilaian.html?siklus=2">Penilaian Siklus 2</a></li>
+    <li><a href="penilaian.html?siklus=3">Penilaian Siklus 3</a></li>
+  </ul>
+</li>
+            <li class="dropdown-submenu">
+              <a href="dokumentasi.html" style="justify-content: space-between;">
+                <span>🎬 Dokumentasi</span>
+                <i class="fa-solid fa-chevron-right nav-dropdown-icon" style="font-size: 0.55rem; margin-left: 0.5rem;"></i>
+              </a>
+              <ul class="submenu-menu">
+                <li><a href="dokumentasi.html?siklus=1">Dokumentasi Siklus 1</a></li>
+                <li><a href="dokumentasi.html?siklus=2">Dokumentasi Siklus 2</a></li>
+                <li><a href="dokumentasi.html?siklus=3">Dokumentasi Siklus 3</a></li>
+                <li><a href="dokumentasi.html?siklus=video">Video Mengajar</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="index.html#kontak" class="btn-hubungi">Hubungi Saya</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="detail-section page-enter">
+    <div class="container">
+      <a href="index.html#artefak" class="back-btn">← Kembali ke Artefak</a>
+      
+      <div class="rpp-container">
+        <div class="rpp-header">
+          <span class="section-tag">Artefak Pembelajaran</span>
+          <h1>RPP atau Perencanaan Pembelajaran Mendalam</h1>
+          <div class="rpp-meta">
+            <span>📅 April 2026</span>
+            <span>📂 Modul Ajar</span>
+            <span>🎓 PJOK (Bola Basket)</span>
+          </div>
+        </div>
+
+        <div class="rpp-content">
+          <h2>Identitas Modul</h2>
+          <table class="info-table">
+            <tr>
+              <td>Penyusun</td>
+              <td>Rafli Daffa Al Fatih, S.Pd.</td>
+            </tr>
+            <tr>
+              <td>Instansi</td>
+              <td>SMP Muhammadiyah 7 Surakarta</td>
+            </tr>
+            <tr>
+              <td>Tahun Penyusunan</td>
+              <td>2026</td>
+            </tr>
+            <tr>
+              <td>Jenjang Sekolah</td>
+              <td>SMP (Fase D)</td>
+            </tr>
+            <tr>
+              <td>Mata Pelajaran</td>
+              <td>Pendidikan Jasmani, Olahraga, dan Kesehatan (PJOK)</td>
+            </tr>
+            <tr>
+              <td>Alokasi Waktu</td>
+              <td>3 x 40 Menit / 3 JP</td>
+            </tr>
+          </table>
+
+          <h2>Kompetensi Awal</h2>
+          <p>Peserta didik telah mengenal permainan bola basket dan mampu melakukan gerak dasar menggiring (dribbling), mengoper (passing), dan menambak bola (shooting), tetapi masih memerlukan penguatan koordinasi gerak serta penerapan teknik yang benar.</p>
+
+          <h2>Tujuan Pembelajaran</h2>
+          <p>Peserta didik mampu menganalisis dan mempraktikkan teknik dasar permainan bola basket (passing, dribbling, dan shooting) dengan benar serta bertanggung jawab dalam kehidupan aktif sehari-hari.</p>
+          <ol style="margin-left: 1.5rem; margin-bottom: 2rem; line-height: 1.8; color: var(--text); font-size: 1.05rem;">
+            <li>Mengidentifikasi minimal 3 teknik dasar bola basket (passing, dribbling, shooting).</li>
+            <li>Menerapkan teknik lempar-tangkap bola dalam permainan.</li>
+            <li>Mempraktikkan gerakan passing, dribbling, dan shooting dengan benar.</li>
+            <li>Menganalisis permasalahan teknik gerak yang ditemukan saat praktik.</li>
+            <li>Mengomunikasikan hasil analisis teknik bola basket melalui presentasi kelompok.</li>
+          </ol>
+
+          <h2>Materi Pembelajaran</h2>
+          <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem; line-height: 1.8; color: var(--text); font-size: 1.05rem;">
+            <li style="margin-bottom: 0.5rem;"><strong>A.</strong> Teknik Dasar Passing: Chest Pass, Bounce Pass, Overhead Pass.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>B.</strong> Teknik Dasar Dribbling: Dribble rendah, dribble tinggi, dribble zig-zag, prinsip kontrol bola dan pandangan ke depan.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>C.</strong> Teknik Dasar Shooting: Set Shot, Jump Shot, prinsip BEEF (Balance, Eyes, Elbow, Follow Through).</li>
+            <li style="margin-bottom: 0.5rem;"><strong>D.</strong> Penerapan Teknik dalam Permainan: Akurasi passing, kontrol dribbling, shooting ke ring, kerja sama tim.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>E.</strong> Analisis Kesalahan Gerak dan Solusi Perbaikan.</li>
+          </ul>
+
+          <h2>Preview Dokumen</h2>
+          <div class="pdf-viewer-container">
+            <div class="pdf-fallback">
+              <p>Sedang memuat preview... <br> (Jika tidak muncul, pastikan file PDF sudah tersedia di folder assets/docs)</p>
+            </div>
+            <iframe src="assets/docs/Modul_Ajar_PPG.pdf#toolbar=0" title="Preview RPP"></iframe>
+          </div>
+
+          <h2>Metode & Model Pembelajaran</h2>
+          <p>Praktik, demonstrasi, diskusi, dan tanya jawab dengan model <strong>Problem Based Learning (PBL)</strong>.</p>
+
+          <div class="download-card">
+            <div class="download-info">
+              <h4>Dokumen Lengkap RPP</h4>
+              <p class="section-desc" style="margin:0; text-align:left;">File PDF berisi rincian langkah kegiatan, asesmen, dan lampiran materi.</p>
+            </div>
+            <a href="assets/docs/Modul_Ajar_PPG.pdf" class="btn-download" target="_blank">Download PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 <strong>Rafli Daffa Al Fatih</strong> · PPG Prajabatan Universitas Muhammadiyah Surakarta</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+

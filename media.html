@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1200" />
+  <title>Media Pembelajaran – PPG Prajabatan 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="icon" type="image/png" href="logo-ust.png.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    .detail-section {
+      padding-top: 130px;
+      padding-bottom: 100px;
+      background: linear-gradient(180deg, var(--white) 0%, var(--bg-alt) 100%);
+      min-height: 100vh;
+      position: relative;
+    }
+    .detail-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 500px;
+      background: radial-gradient(circle at top right, hsl(258,70%,90%,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--purple-dark);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 2.5rem;
+      transition: var(--transition);
+      background: var(--purple-soft);
+      padding: 0.5rem 1.2rem;
+      border-radius: 99px;
+    }
+    .back-btn:hover {
+      background: var(--purple);
+      color: var(--white);
+      transform: translateX(-5px);
+    }
+    .rpp-container {
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 4rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 1;
+    }
+    .rpp-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .rpp-header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-top: 0.75rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .rpp-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .rpp-meta span { display: flex; align-items: center; gap: 0.5rem; }
+    .rpp-content h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 3.5rem 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .rpp-content h2::before {
+      content: '';
+      width: 4px;
+      height: 1.2em;
+      background: var(--purple);
+      border-radius: 2px;
+    }
+    .rpp-content p {
+      margin-bottom: 1.25rem;
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+    .info-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .info-table td {
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 1rem;
+    }
+    .info-table tr:last-child td { border-bottom: none; }
+    .info-table td:first-child {
+      background: rgba(258, 80%, 95%, 0.4);
+      font-weight: 700;
+      color: var(--purple-dark);
+      width: 35%;
+    }
+  </style>
+</head>
+<body>
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">
+        <img src="logo-ust.png.jpg" alt="Logo UMS" class="preloader-logo-img" />
+      </div>
+      <div class="preloader-text">
+        <span class="preloader-name">Rafli Daffa Al Fatih</span>
+        <span class="preloader-sub">PPG Prajabatan 2026</span>
+      </div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar" id="preloaderBar"></div>
+      </div>
+      <p class="preloader-hint">Memuat Portofolio...</p>
+    </div>
+    <div class="preloader-bg-text">PJOK</div>
+  </div>
+
+  <div class="page-transition" id="pageTransition"></div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-brand">
+        <img src="logo-ust.png.jpg" alt="Logo UMS" class="nav-logo-img" />
+        <div class="nav-brand-text">
+          <span class="nav-univ">Universitas Muhammadiyah Surakarta</span>
+          <span class="nav-sub">PPG Prajabatan 2026</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#home" class="nav-link">Beranda</a></li>
+        <li><a href="index.html#profil" class="nav-link">Profil</a></li>
+        <li class="nav-dropdown">
+          <a href="index.html#artefak" class="nav-link nav-dropdown-toggle">
+            Artefak <i class="fa-solid fa-chevron-down nav-dropdown-icon"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="perangkat-ajar.html">📋 Modul Ajar</a></li>
+            <li><a href="media.html">💻 Media Pembelajaran</a></li>
+            <li class="dropdown-submenu">
+              <a href="media-pembelajaran.html" style="justify-content: space-between;">
+                <span>🔄 Siklus</span>
+                <i class="fa-solid fa-chevron-right nav-dropdown-icon" style="font-size: 0.55rem; margin-left: 0.5rem;"></i>
+              </a>
+              <ul class="submenu-menu">
+                <li><a href="media-pembelajaran.html?siklus=1">Siklus 1</a></li>
+                <li><a href="media-pembelajaran.html?siklus=2">Siklus 2</a></li>
+                <li><a href="media-pembelajaran.html?siklus=3">Siklus 3</a></li>
+              </ul>
+            </li>
+            <li><a href="analisis-refleksi.html">🔍 Analisis & Refleksi</a></li>
+            <li><a href="hasil-kerja.html">📝 Hasil Kerja</a></li>
+<li class="dropdown-submenu">
+  <a href="penilaian.html" style="justify-content: space-between;">
+    <span>⭐ Penilaian</span>
+    <i class="fa-solid fa-chevron-right nav-dropdown-icon" style="font-size: 0.55rem; margin-left: 0.5rem;"></i>
+  </a>
+  <ul class="submenu-menu">
+    <li><a href="penilaian.html?siklus=1">Penilaian Siklus 1</a></li>
+    <li><a href="penilaian.html?siklus=2">Penilaian Siklus 2</a></li>
+    <li><a href="penilaian.html?siklus=3">Penilaian Siklus 3</a></li>
+  </ul>
+</li>
+            <li class="dropdown-submenu">
+              <a href="dokumentasi.html" style="justify-content: space-between;">
+                <span>🎬 Dokumentasi</span>
+                <i class="fa-solid fa-chevron-right nav-dropdown-icon" style="font-size: 0.55rem; margin-left: 0.5rem;"></i>
+              </a>
+              <ul class="submenu-menu">
+                <li><a href="dokumentasi.html?siklus=1">Dokumentasi Siklus 1</a></li>
+                <li><a href="dokumentasi.html?siklus=2">Dokumentasi Siklus 2</a></li>
+                <li><a href="dokumentasi.html?siklus=3">Dokumentasi Siklus 3</a></li>
+                <li><a href="dokumentasi.html?siklus=video">Video Mengajar</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="index.html#kontak" class="btn-hubungi">Hubungi Saya</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="detail-section page-enter">
+    <div class="container">
+      <a href="index.html#artefak" class="back-btn">← Kembali ke Artefak</a>
+      
+      <div class="rpp-container">
+        <div class="rpp-header">
+          <span class="section-tag">Artefak Pembelajaran</span>
+          <h1>Media Pembelajaran</h1>
+          <div class="rpp-meta">
+            <span>📅 2026</span>
+            <span>📂 Media</span>
+          </div>
+        </div>
+
+        <div class="rpp-content">
+          <h2>Informasi Media</h2>
+          <table class="info-table">
+            <tr>
+              <td>Penyusun</td>
+              <td>Rafli Daffa Al Fatih</td>
+            </tr>
+            <tr>
+              <td>Jenis Media</td>
+              <td>Interaktif & Cetak</td>
+            </tr>
+            <tr>
+              <td>Tujuan</td>
+              <td>Meningkatkan efektivitas pembelajaran melalui media yang kreatif</td>
+            </tr>
+          </table>
+
+          <h2>Deskripsi</h2>
+          <p>Media pembelajaran ini dikembangkan untuk memfasilitasi proses belajar mengajar agar lebih menarik dan mudah dipahami oleh peserta didik. Media ini disesuaikan dengan kebutuhan serta karakteristik peserta didik.</p>
+
+          <h2>Galeri Alat Pembelajaran</h2>
+          <p>Berikut adalah beberapa contoh alat peraga dan kelengkapan olahraga yang digunakan selama proses pembelajaran lapangan:</p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 2rem 0;">
+            <!-- Bola Basket -->
+            <div style="background: var(--bg-alt); padding: 1.25rem; border-radius: var(--radius-lg); border: 1px dashed var(--purple-light); text-align: center; display: flex; flex-direction: column;">
+              <img src="alat-basket.png" alt="Alat Pembelajaran Basket" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin-bottom: 1rem;" />
+              <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; color: var(--dark); margin-bottom: 0.5rem; margin-top: auto;">Olahraga Basket</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;">Perlengkapan latihan bola basket untuk melatih teknik dasar dan strategi.</p>
+            </div>
+
+            <!-- Bola Voli -->
+            <div style="background: var(--bg-alt); padding: 1.25rem; border-radius: var(--radius-lg); border: 1px dashed var(--purple-light); text-align: center; display: flex; flex-direction: column;">
+              <img src="alat-voli.png" alt="Alat Pembelajaran Voli" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin-bottom: 1rem;" />
+              <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; color: var(--dark); margin-bottom: 0.5rem; margin-top: auto;">Olahraga Voli</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;">Alat peraga dan perlengkapan untuk meningkatkan keterampilan gerak bola voli.</p>
+            </div>
+
+            <!-- Umum / Agility -->
+            <div style="background: var(--bg-alt); padding: 1.25rem; border-radius: var(--radius-lg); border: 1px dashed var(--purple-light); text-align: center; display: flex; flex-direction: column;">
+              <img src="alat-olahraga.png" alt="Alat Latihan Fisik" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin-bottom: 1rem;" />
+              <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; color: var(--dark); margin-bottom: 0.5rem; margin-top: auto;">Kebugaran Jasmani</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;">Peralatan untuk melatih kelincahan, ketahanan, serta kondisi fisik secara umum.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 <strong>Rafli Daffa Al Fatih</strong> · PPG Prajabatan Universitas Muhammadiyah Surakarta</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1200" />
+  <title>Dokumentasi – Portofolio Rafli Daffa Al Fatih</title>
+  <meta name="description" content="Dokumentasi Praktik Pembelajaran dan Kegiatan Sekolah PPG Prajabatan" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="icon" type="image/png" href="logo-ust.png.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    .detail-section { padding: 9rem 2rem 5rem; min-height: 80vh; background: var(--bg-alt); }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--text-muted); text-decoration: none; font-weight: 600;
+      margin-bottom: 2rem; transition: var(--transition);
+      background: var(--white); padding: 0.6rem 1.2rem;
+      border-radius: 99px; border: 1.5px solid var(--border);
+    }
+    .back-btn:hover { color: var(--purple); border-color: var(--purple-light); transform: translateY(-2px); }
+    
+    .doc-container {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+    }
+    .doc-header { margin-bottom: 3rem; border-bottom: 2px solid var(--border); padding-bottom: 2rem; }
+    .section-tag {
+      display: inline-block; background: var(--purple-soft); color: var(--purple);
+      border: 1px solid var(--border); padding: 0.28rem 1rem; border-radius: 99px;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .doc-header h1 { font-family: 'Outfit', sans-serif; font-size: 2.2rem; color: var(--dark); margin-bottom: 1rem; }
+    .doc-meta { display: flex; gap: 1.5rem; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; }
+    
+    /* Documentation Gallery Styles */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .gallery-item {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--purple-light);
+    }
+    .gallery-media {
+      height: 200px;
+      background: var(--purple-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    .gallery-icon {
+      font-size: 3rem;
+      color: var(--purple);
+    }
+    .gallery-info {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .gallery-info h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    .gallery-info p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .gallery-tags {
+      margin-top: auto;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .gallery-tags span {
+      font-size: 0.75rem;
+      background: var(--white);
+      color: var(--text);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      font-weight: 600;
+    }
+
+    /* Siklus Tabs Styles */
+    .siklus-tabs-nav {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0px;
+    }
+    .siklus-tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      padding: 0.8rem 1.5rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      border-radius: 0;
+    }
+    .siklus-tab-btn:hover {
+      color: var(--purple);
+    }
+    .siklus-tab-btn.active {
+      color: var(--purple);
+      border-bottom-color: var(--purple);
+    }
+    .siklus-tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--purple);
+      transition: var(--transition);
+    }
+    .siklus-tab-btn.active::after {
+      width: 100%;
+    }
+    .siklus-tab-panel {
+      display: none;
+      animation: pageEnter 0.5s ease forwards;
+    }
+    .siklus-tab-panel.active {
+      display: block;
+    }
+    .siklus-info-box h3 {
+      font-family: 'Outfit', sans-serif;
+      color: var(--dark);
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+    .siklus-info-box p {
+      color: var(--text);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Video Player Facade Style */
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1.5px solid var(--border);
+      background: var(--dark);
+      aspect-ratio: 16/9;
+    }
+    
+    .video-thumbnail-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .video-thumbnail-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    
+    .video-thumbnail-wrapper:hover .video-thumbnail-img {
+      transform: scale(1.05);
+    }
+    
+    .video-overlay-tint {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
+      transition: background 0.3s ease;
+    }
+    
+    .video-thumbnail-wrapper:hover .video-overlay-tint {
+      background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%);
+    }
+
+    .play-button-pulsing {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: var(--purple);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      padding-left: 5px; /* offset play icon alignment */
+      box-shadow: 0 10px 25px rgba(139, 92, 246, 0.5);
+      z-index: 3;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .play-button-pulsing::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 3px solid rgba(139, 92, 246, 0.4);
+      border-radius: 50%;
+      animation: playRipple 2s infinite;
+      z-index: -1;
+    }
+    
+    .video-thumbnail-wrapper:hover .play-button-pulsing {
+      transform: scale(1.1);
+      background: var(--purple-dark);
+      box-shadow: 0 15px 30px rgba(139, 92, 246, 0.7);
+    }
+    
+    @keyframes playRipple {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.6);
+        opacity: 0;
+      }
+    }
+    
+    .video-iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">
+        <img src="logo-ust.png.jpg" alt="Logo UMS" class="preloader-logo-img" />
+      </div>
+      <div class="preloader-text">
+        <span class="preloader-name">Rafli Daffa Al Fatih</span>
+        <span class="preloader-sub">PPG Prajabatan 2026</span>
+      </div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar" id="preloaderBar"></div>
+      </div>
+      <p class="preloader-hint">Memuat Portofolio...</p>
+    </div>
+    <div class="preloader-bg-text">PJOK</div>
+  </div>
+
+  <div class="page-transition" id="pageTransition"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-brand">
+        <img src="logo-ust.png.jpg" alt="Logo UMS" class="nav-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="nav-logo-icon" aria-label="Logo universitas" style="display: none;">🏛️</div>
+        <div class="nav-brand-text">
+          <span class="nav-univ">Universitas Muhammadiyah Surakarta</span>
+          <span class="nav-sub">PPG Prajabatan 2026</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#home" class="nav-link">Beranda</a></li>
+        <li><a href="index.html#profil" class="nav-link">Profil</a></li>
+        <li class="nav-dropdown">
+          <a href="index.html#artefak" class="nav-link nav-dropdown-toggle">
+            Artefak <i class="fa-solid fa-chevron-down nav-dropdown-icon"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="perangkat-ajar.html">📋 Modul Ajar</a></li>
+            <li><a href="media.html">💻 Media Pembelajaran</a></li>
+            <li class="dropdown-submenu">
+              <a href="media-pembelajaran.html" style="justify-content: space-between;">
+                <span>🔄 Siklus</span>
+                <i class="fa-solid fa-chevron-right nav-dropdown-icon" style="font-size: 0.55rem; margin-left: 0.5rem;"></i>
+              </a>
+              <ul class="submenu-menu">
+                <li><a href="media-pembelajaran.html?siklus=1">Siklus 1</a></li>
+                <li><a href="media-pembelajaran.html?siklus=2">Siklus 2</a></li>
+                <li><a href="media-pembelajaran.html?siklus=3">Siklus 3</a></li>
+              </ul>
+            </li>
+            <li><a href="analisis-refleksi.html">🔍 Analisis & Refleksi</a></li>
+            <li><a href="hasil-kerja.html">📝 Hasil Kerja</a></li>
+<li class="dropdown-submenu">
+  <a href="penilaian.html" style="justify-content: space-between;">
+    <span>⭐ Penilaian</span>
+    <i class="fa-solid fa-chevron-right nav-dropdown-icon" style="font-size: 0.55rem; margin-left: 0.5rem;"></i>
+  </a>
+  <ul class="submenu-menu">
+    <li><a href="penilaian.html?siklus=1">Penilaian Siklus 1</a></li>
+    <li><a href="penilaian.html?siklus=2">Penilaian Siklus 2</a></li>
+    <li><a href="penilaian.html?siklus=3">Penilaian Siklus 3</a></li>
+  </ul>
+</li>
+            <li class="dropdown-submenu">
+              <a href="dokumentasi.html" style="justify-content: space-between;">
+                <span>🎬 Dokumentasi</span>
+                <i class="fa-solid fa-chevron-right nav-dropdown-icon" style="font-size: 0.55rem; margin-left: 0.5rem;"></i>
+              </a>
+              <ul class="submenu-menu">
+                <li><a href="dokumentasi.html?siklus=1">Dokumentasi Siklus 1</a></li>
+                <li><a href="dokumentasi.html?siklus=2">Dokumentasi Siklus 2</a></li>
+                <li><a href="dokumentasi.html?siklus=3">Dokumentasi Siklus 3</a></li>
+                <li><a href="dokumentasi.html?siklus=video">Video Mengajar</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="index.html#kontak" class="btn-hubungi">Hubungi Saya</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="detail-section page-enter">
+    <div class="container">
+      <a href="index.html#artefak" class="back-btn">← Kembali ke Artefak</a>
+      
+      <div class="doc-container">
+        <div class="doc-header">
+          <span class="section-tag">Dokumentasi</span>
+          <h1>DOKUMENTASI</h1>
+          <div class="doc-meta">
+            <span>📅 2026</span>
+            <span>📂 Galeri Kegiatan</span>
+            <span>📸 Foto & Video Praktik</span>
+          </div>
+        </div>
+
+        <div class="doc-content">
+          <p style="color: var(--text); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2.5rem;">
+            Kumpulan dokumentasi kegiatan pembelajaran, praktik mengajar, dan kegiatan PPG siklus 1, 2, dan 3
+          </p>
+
+          <!-- Tab Navigation for Cycles -->
+          <div class="siklus-tabs-nav">
+            <button class="siklus-tab-btn active" data-siklus="1">SIKLUS 1</button>
+            <button class="siklus-tab-btn" data-siklus="2">SIKLUS 2</button>
+            <button class="siklus-tab-btn" data-siklus="3">SIKLUS 3</button>
+            <button class="siklus-tab-btn" data-siklus="video">VIDEO MENGAJAR</button>
+          </div>
+
+          <!-- Tab Contents for Cycles -->
+          <div class="siklus-tab-panels">
+            <!-- Panel Siklus 1 -->
+            <div class="siklus-tab-panel active" id="panel-siklus-1">
+              <div class="siklus-info-box">
+                <h3>Foto Kegiatan Kelas Siklus 1</h3>
+                <p>Dokumentasi interaksi guru dengan peserta didik, diskusi kelompok, dan praktik teknik dasar passing (Chest Pass, Bounce Pass, dan Overhead Pass) bersama peserta didik.</p>
+
+                <div style="text-align: center; margin-top: 1.5rem; margin-bottom: 2rem;">
+                  <!-- Preview Foto -->
+                  <div style="margin-bottom: 1.5rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); max-width: 900px; margin-left: auto; margin-right: auto; background: #fafafa; display: flex; justify-content: center; align-items: center;">
+                    <img src="foto-siklus-1.jpeg" alt="Foto Kegiatan Kelas Siklus 1" style="width: 100%; max-height: 500px; object-fit: contain; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <div style="display: none; height: 350px; width: 100%; align-items: center; justify-content: center; background: var(--bg-alt); color: var(--text-muted); font-size: 1.2rem; flex-direction: column; gap: 0.5rem;">
+                      <i class="fa-solid fa-image" style="font-size: 3.5rem; color: var(--purple-light);"></i>
+                      <span>Foto Kegiatan Kelas Siklus 1 Belum Tersedia</span>
+                    </div>
+                  </div>
+
+                  <!-- Tombol Unduh Foto -->
+                  <div>
+                    <a href="foto-siklus-1.jpeg" download="foto-siklus-1.jpeg"
+                      style="display: inline-flex; align-items: center; gap: 0.6rem; background: var(--purple); color: var(--white); font-weight: 600; padding: 0.8rem 1.8rem; border-radius: 99px; text-decoration: none; box-shadow: var(--shadow-sm); border: 1.5px solid var(--purple-light); transition: var(--transition);"
+                      onmouseover="this.style.transform='translateY(-2px)'; this.style.background='var(--purple-dark)';"
+                      onmouseout="this.style.transform='none'; this.style.background='var(--purple)';">
+                      <i class="fa-solid fa-download" style="font-size: 1.2rem;"></i> Unduh Foto Kegiatan Siklus 1
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel Siklus 2 -->
+            <div class="siklus-tab-panel" id="panel-siklus-2">
+              <div class="siklus-info-box">
+                <h3>Foto Kegiatan Kelas Siklus 2</h3>
+                <p>Dokumentasi interaksi guru dengan peserta didik, diskusi kelompok, dan praktik teknik dasar dribbling (dribbling di tempat dan dribbling bergerak) bersama peserta didik.</p>
+
+                <div style="text-align: center; margin-top: 1.5rem; margin-bottom: 2rem;">
+                  <!-- Preview Foto -->
+                  <div style="margin-bottom: 1.5rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); max-width: 900px; margin-left: auto; margin-right: auto; background: #fafafa; display: flex; justify-content: center; align-items: center;">
+                    <img src="foto-siklus-2.jpeg" alt="Foto Kegiatan Kelas Siklus 2" style="width: 100%; max-height: 500px; object-fit: contain; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <div style="display: none; height: 350px; width: 100%; align-items: center; justify-content: center; background: var(--bg-alt); color: var(--text-muted); font-size: 1.2rem; flex-direction: column; gap: 0.5rem;">
+                      <i class="fa-solid fa-image" style="font-size: 3.5rem; color: var(--purple-light);"></i>
+                      <span>Foto Kegiatan Kelas Siklus 2 Belum Tersedia</span>
+                    </div>
+                  </div>
+
+                  <!-- Tombol Unduh Foto -->
+                  <div>
+                    <a href="foto-siklus-2.jpeg" download="foto-siklus-2.jpeg"
+                      style="display: inline-flex; align-items: center; gap: 0.6rem; background: var(--purple); color: var(--white); font-weight: 600; padding: 0.8rem 1.8rem; border-radius: 99px; text-decoration: none; box-shadow: var(--shadow-sm); border: 1.5px solid var(--purple-light); transition: var(--transition);"
+                      onmouseover="this.style.transform='translateY(-2px)'; this.style.background='var(--purple-dark)';"
+                      onmouseout="this.style.transform='none'; this.style.background='var(--purple)';">
+                      <i class="fa-solid fa-download" style="font-size: 1.2rem;"></i> Unduh Foto Kegiatan Siklus 2
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel Siklus 3 -->
+            <div class="siklus-tab-panel" id="panel-siklus-3">
+              <div class="siklus-info-box">
+                <h3>Foto Kegiatan Kelas Siklus 3</h3>
+                <p>Dokumentasi interaksi guru dengan peserta didik, diskusi kelompok, dan praktik teknik dasar shooting (shooting di tempat, lay-up shoot) bersama peserta didik.</p>
+
+                <div style="text-align: center; margin-top: 1.5rem; margin-bottom: 2rem;">
+                  <!-- Preview Foto -->
+                  <div style="margin-bottom: 1.5rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); max-width: 900px; margin-left: auto; margin-right: auto; background: #fafafa; display: flex; justify-content: center; align-items: center;">
+                    <img src="foto-siklus-3.jpeg" alt="Foto Kegiatan Kelas Siklus 3" style="width: 100%; max-height: 500px; object-fit: contain; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <div style="display: none; height: 350px; width: 100%; align-items: center; justify-content: center; background: var(--bg-alt); color: var(--text-muted); font-size: 1.2rem; flex-direction: column; gap: 0.5rem;">
+                      <i class="fa-solid fa-image" style="font-size: 3.5rem; color: var(--purple-light);"></i>
+                      <span>Foto Kegiatan Kelas Siklus 3 Belum Tersedia</span>
+                    </div>
+                  </div>
+
+                  <!-- Tombol Unduh Foto -->
+                  <div>
+                    <a href="foto-siklus-3.jpeg" download="foto-siklus-3.jpeg"
+                      style="display: inline-flex; align-items: center; gap: 0.6rem; background: var(--purple); color: var(--white); font-weight: 600; padding: 0.8rem 1.8rem; border-radius: 99px; text-decoration: none; box-shadow: var(--shadow-sm); border: 1.5px solid var(--purple-light); transition: var(--transition);"
+                      onmouseover="this.style.transform='translateY(-2px)'; this.style.background='var(--purple-dark)';"
+                      onmouseout="this.style.transform='none'; this.style.background='var(--purple)';">
+                      <i class="fa-solid fa-download" style="font-size: 1.2rem;"></i> Unduh Foto Kegiatan Siklus 3
+                    </a>
+                  </div>
+                </div>
+            </div>
+            </div>
+            
+            <!-- Panel Video Mengajar -->
+            <div class="siklus-tab-panel" id="panel-siklus-video">
+              <div class="siklus-info-box">
+                <h3>Video Praktik Mengajar</h3>
+                <p>Rekaman video pelaksanaan pembelajaran, praktik mengajar, dan interaksi di dalam kelas.</p>
+                <div style="text-align: center; margin-top: 1.5rem; margin-bottom: 2rem;">
+                  <!-- Video Container with Facade -->
+                  <div class="video-container" id="videoContainer">
+                    <div class="video-thumbnail-wrapper" id="videoThumbnail">
+                      <img src="thumbnail-video.png" id="videoThumbnailImg" alt="Thumbnail Video Mengajar" class="video-thumbnail-img" />
+                      <div class="video-overlay-tint"></div>
+                      <div class="play-button-pulsing">
+                        <i class="fa-solid fa-play"></i>
+                      </div>
+                    </div>
+                    <!-- Frame placeholder (initially hidden, iframe is created on click for autoplay/speed) -->
+                    <div id="videoPlayer" style="display: none; width: 100%; height: 100%;">
+                      <iframe src="https://www.youtube.com/embed/ShCFZRKsjGo?autoplay=1" title="Video Praktik Mengajar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="video-iframe"></iframe>
+                    </div>
+                  </div>
+                  
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 <strong>Rafli Daffa Al Fatih</strong> · PPG Prajabatan Universitas Muhammadiyah Surakarta</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabs = document.querySelectorAll(".siklus-tab-btn");
+      const panels = document.querySelectorAll(".siklus-tab-panel");
+
+      function switchTab(siklusNum) {
+        tabs.forEach(tab => {
+          if (tab.getAttribute("data-siklus") === siklusNum) {
+            tab.classList.add("active");
+          } else {
+            tab.classList.remove("active");
+          }
+        });
+
+        panels.forEach(panel => {
+          if (panel.getAttribute("id") === `panel-siklus-${siklusNum}`) {
+            panel.classList.add("active");
+          } else {
+            panel.classList.remove("active");
+          }
+        });
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          const siklusNum = tab.getAttribute("data-siklus");
+          switchTab(siklusNum);
+          // Update URL query parameter without reloading
+          const url = new URL(window.location);
+          url.searchParams.set("siklus", siklusNum);
+          window.history.pushState({}, "", url);
+        });
+      });
+
+      // Check URL query parameters on load
+      const urlParams = new URLSearchParams(window.location.search);
+      const siklusParam = urlParams.get("siklus");
+      if (siklusParam && ["1", "2", "3", "video"].includes(siklusParam)) {
+        switchTab(siklusParam);
+      }
+
+      // Dynamic YouTube Thumbnail and Play handler
+      const videoThumbnail = document.getElementById("videoThumbnail");
+      const videoPlayer = document.getElementById("videoPlayer");
+      const videoThumbnailImg = document.getElementById("videoThumbnailImg");
+
+      if (videoPlayer && videoThumbnailImg) {
+        const iframe = videoPlayer.querySelector("iframe");
+        if (iframe) {
+          const src = iframe.src;
+          const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+          const match = src.match(regExp);
+          
+          if (match && match[2].length === 11) {
+            const videoId = match[2];
+            // Set source to YouTube's maxresdefault.jpg
+            videoThumbnailImg.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+            
+            // Fallback chain: maxresdefault -> hqdefault -> local fallback
+            videoThumbnailImg.onerror = () => {
+              videoThumbnailImg.onerror = () => {
+                videoThumbnailImg.src = 'thumbnail-video.png'; // local fallback
+              };
+              videoThumbnailImg.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+            };
+          }
+        }
+      }
+
+      if (videoThumbnail && videoPlayer) {
+        videoThumbnail.addEventListener("click", () => {
+          videoThumbnail.style.display = "none";
+          videoPlayer.style.display = "block";
+          
+          // Focus the iframe for autoplay
+          const iframe = videoPlayer.querySelector("iframe");
+          if (iframe) {
+            iframe.src = iframe.src; // resets to trigger autoplay
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

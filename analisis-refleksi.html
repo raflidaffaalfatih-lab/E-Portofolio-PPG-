@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1200" />
+  <title>Analisis & Refleksi – Portofolio Rafli Daffa Al Fatih</title>
+  <meta name="description" content="Analisis dan Refleksi untuk melengkapi kebutuhan kelas" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="icon" type="image/png" href="logo-ust.png.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    .detail-section {
+      padding: 9rem 2rem 5rem;
+      min-height: 80vh;
+      background: var(--bg-alt);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      transition: var(--transition);
+      background: var(--white);
+      padding: 0.6rem 1.2rem;
+      border-radius: 99px;
+      border: 1.5px solid var(--border);
+    }
+
+    .back-btn:hover {
+      color: var(--purple);
+      border-color: var(--purple-light);
+      transform: translateY(-2px);
+    }
+
+    .media-container {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+    }
+
+    .media-header {
+      margin-bottom: 3rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 2rem;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: var(--purple-soft);
+      color: var(--purple);
+      border: 1px solid var(--border);
+      padding: 0.28rem 1rem;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .media-header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .media-meta {
+      display: flex;
+      gap: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Refleksi Grid & Cards */
+    .refleksi-section {
+      margin-bottom: 4rem;
+    }
+
+    .refleksi-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-subtitle {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--purple-dark);
+      margin-top: 1rem;
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+
+    .section-subtitle i {
+      color: var(--purple);
+    }
+
+    .refleksi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .refleksi-card {
+      background: var(--bg-alt);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem;
+      display: flex;
+      gap: 1.25rem;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .refleksi-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-sm);
+      border-color: var(--purple-light);
+      background: var(--white);
+    }
+
+    .card-num {
+      background: var(--purple-soft);
+      color: var(--purple-dark);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+
+    .card-body h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      color: var(--dark);
+      margin-top: 0.2rem;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .card-body p {
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0;
+      text-align: justify;
+    }
+
+    .card-body ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.2rem;
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .card-body ul li {
+      margin-bottom: 0.25rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ══════════════════════════════════════════════
+       PRELOADER / INTRO ANIMATION
+  ══════════════════════════════════════════════ -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">
+        <img src="logo-ust.png.jpg" alt="Logo UMS" class="preloader-logo-img" />
+      </div>
+      <div class="preloader-text">
+        <span class="preloader-name">Rafli Daffa Al Fatih</span>
+        <span class="preloader-sub">PPG Prajabatan 2026</span>
+      </div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar" id="preloaderBar"></div>
+      </div>
+      <p class="preloader-hint">Memuat Portofolio...</p>
+    </div>
+    <div class="preloader-bg-text">PJOK</div>
+  </div>
+
+  <div class="page-transition" id="pageTransition"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-brand">
+        <img src="logo-ust.png.jpg" alt="Logo UMS" class="nav-logo-img"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="nav-logo-icon" aria-label="Logo universitas" style="display: none;">🏛️</div>
+        <div class="nav-brand-text">
+          <span class="nav-univ">Universitas Muhammadiyah Surakarta</span>
+          <span class="nav-sub">PPG Prajabatan 2026</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#home" class="nav-link">Beranda</a></li>
+        <li><a href="index.html#profil" class="nav-link">Profil</a></li>
+        <li class="nav-dropdown">
+          <a href="index.html#artefak" class="nav-link nav-dropdown-toggle">
+            Artefak <i class="fa-solid fa-chevron-down nav-dropdown-icon"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="perangkat-ajar.html">📋 Modul Ajar</a></li>
+            <li><a href="media.html">💻 Media Pembelajaran</a></li>
+            <li class="dropdown-submenu">
+              <a href="media-pembelajaran.html" style="justify-content: space-between;">
+                <span>🔄 Siklus</span>
+                <i class="fa-solid fa-chevron-right nav-dropdown-icon"
+                  style="font-size: 0.55rem; margin-left: 0.5rem;"></i>
+              </a>
+              <ul class="submenu-menu">
+                <li><a href="media-pembelajaran.html?siklus=1">Siklus 1</a></li>
+                <li><a href="media-pembelajaran.html?siklus=2">Siklus 2</a></li>
+                <li><a href="media-pembelajaran.html?siklus=3">Siklus 3</a></li>
+              </ul>
+            </li>
+            <li><a href="analisis-refleksi.html">🔍 Analisis & Refleksi</a></li>
+            <li><a href="hasil-kerja.html">📝 Hasil Kerja</a></li>
+            <li class="dropdown-submenu">
+              <a href="penilaian.html" style="justify-content: space-between;">
+                <span>⭐ Penilaian</span>
+                <i class="fa-solid fa-chevron-right nav-dropdown-icon"
+                  style="font-size: 0.55rem; margin-left: 0.5rem;"></i>
+              </a>
+              <ul class="submenu-menu">
+                <li><a href="penilaian.html?siklus=1">Penilaian Siklus 1</a></li>
+                <li><a href="penilaian.html?siklus=2">Penilaian Siklus 2</a></li>
+                <li><a href="penilaian.html?siklus=3">Penilaian Siklus 3</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="dokumentasi.html" style="justify-content: space-between;">
+                <span>🎬 Dokumentasi</span>
+                <i class="fa-solid fa-chevron-right nav-dropdown-icon"
+                  style="font-size: 0.55rem; margin-left: 0.5rem;"></i>
+              </a>
+              <ul class="submenu-menu">
+                <li><a href="dokumentasi.html?siklus=1">Dokumentasi Siklus 1</a></li>
+                <li><a href="dokumentasi.html?siklus=2">Dokumentasi Siklus 2</a></li>
+                <li><a href="dokumentasi.html?siklus=3">Dokumentasi Siklus 3</a></li>
+                <li><a href="dokumentasi.html?siklus=video">Video Mengajar</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="index.html#kontak" class="btn-hubungi">Hubungi Saya</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="detail-section page-enter">
+    <div class="container">
+      <a href="index.html#artefak" class="back-btn">← Kembali ke Artefak</a>
+
+      <div class="media-container">
+        <div class="media-header">
+          <span class="section-tag">Analisis & Refleksi</span>
+          <h1>Analisis dan Refleksi</h1>
+          <div class="media-meta">
+            <span>📅 2026</span>
+            <span>📂 Refleksi</span>
+          </div>
+        </div>
+
+        <div class="refleksi-content">
+
+          <!-- 1. KENDALA SELAMA PENYUSUNAN -->
+          <div class="refleksi-section">
+            <h2 class="section-subtitle"><i class="fa-solid fa-triangle-exclamation"></i> 1. Kendala Selama Penyusunan</h2>
+            <div class="refleksi-grid">
+              <div class="refleksi-card">
+                <div class="card-num">A</div>
+                <div class="card-body">
+                  <h3>Mengintegrasikan Kurikulum Merdeka dengan Pendekatan Deep Learning</h3>
+                  <p>Modul tidak hanya memuat tujuan pembelajaran dan aktivitas PJOK, tetapi juga harus mengintegrasikan unsur Mindful Learning, Meaningful Learning, dan Joyful Learning secara konsisten dalam setiap tahapan pembelajaran. Hal ini terlihat pada perencanaan kegiatan, asesmen, hingga refleksi.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">B</div>
+                <div class="card-body">
+                  <h3>Menyelaraskan Model PBL dengan Karakteristik PJOK</h3>
+                  <p>Model Problem Based Learning (PBL) yang digunakan harus tetap sesuai dengan karakteristik pembelajaran PJOK yang dominan praktik gerak. Penyusun perlu merancang masalah kontekstual, diskusi LKPD, sekaligus aktivitas fisik agar tujuan kognitif dan psikomotor tercapai secara seimbang.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">C</div>
+                <div class="card-body">
+                  <h3>Penyusunan Asesmen yang Komprehensif</h3>
+                  <p>Modul memuat asesmen kognitif, psikomotor, dan afektif secara lengkap dengan rubrik penilaian yang rinci. Penyusunan instrumen seperti ini membutuhkan waktu dan ketelitian agar setiap tujuan pembelajaran dapat terukur dengan baik.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. TEORI/KONSEP PEDAGOGIK YANG DIADOPSI -->
+          <div class="refleksi-section">
+            <h2 class="section-subtitle"><i class="fa-solid fa-book"></i> 2. Teori / Konsep Pedagogik yang Diadopsi</h2>
+            <div class="refleksi-grid">
+              <div class="refleksi-card">
+                <div class="card-num">A</div>
+                <div class="card-body">
+                  <h3>Problem Based Learning (PBL)</h3>
+                  <p>Modul menggunakan model PBL dengan lima sintaks utama: orientasi masalah, organisasi peserta didik, penyelidikan, pengembangan hasil, dan evaluasi pemecahan masalah. Implementasinya terlihat saat peserta didik diminta menganalisis masalah teknik bolabasket yang ditemukan selama praktik dan mencari solusi melalui LKPD.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">B</div>
+                <div class="card-body">
+                  <h3>Deep Learning</h3>
+                  <p>Pendekatan utama modul adalah Deep Learning yang menekankan pemahaman mendalam, refleksi, dan penerapan pengetahuan dalam konteks nyata.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">C</div>
+                <div class="card-body">
+                  <h3>Mindful Learning</h3>
+                  <p>Peserta didik diarahkan untuk fokus terhadap proses gerak, memahami tujuan pembelajaran, dan melakukan refleksi terhadap pengalaman belajar yang diperoleh.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">D</div>
+                <div class="card-body">
+                  <h3>Meaningful Learning</h3>
+                  <p>Pembelajaran dikaitkan dengan situasi nyata, yaitu persiapan tim sekolah menghadapi pertandingan sehingga peserta didik memahami manfaat teknik bolabasket dalam kehidupan nyata dan kerja sama tim.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">E</div>
+                <div class="card-body">
+                  <h3>Joyful Learning</h3>
+                  <p>Permainan "Kucing-Kucingan", aktivitas kelompok, dan apresiasi selama pembelajaran dirancang untuk menciptakan suasana belajar yang menyenangkan dan meningkatkan motivasi peserta didik.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">F</div>
+                <div class="card-body">
+                  <h3>TPACK dan Pembelajaran Abad 21 (4C)</h3>
+                  <p>Modul mengintegrasikan:</p>
+                  <ul>
+                    <li><strong>Technology:</strong> YouTube, Quizizz, Kahoot!, Canva.</li>
+                    <li><strong>Pedagogy:</strong> PBL, diskusi, demonstrasi.</li>
+                    <li><strong>Content:</strong> Teknik dasar bolabasket.</li>
+                  </ul>
+                  <p style="margin-top: 0.8rem; margin-bottom: 0.4rem;">Selain itu, dikembangkan keterampilan abad 21 berupa:</p>
+                  <ul>
+                    <li>Critical Thinking</li>
+                    <li>Communication</li>
+                    <li>Collaboration</li>
+                    <li>Creativity</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. FAKTOR KEBERHASILAN PENERAPAN -->
+          <div class="refleksi-section">
+            <h2 class="section-subtitle"><i class="fa-solid fa-circle-check"></i> 3. Faktor Keberhasilan Penerapan</h2>
+            <div class="refleksi-grid">
+              <div class="refleksi-card">
+                <div class="card-num">A</div>
+                <div class="card-body">
+                  <h3>Motivasi Belajar Peserta Didik Tinggi</h3>
+                  <p>Hasil asesmen awal menunjukkan 89,7% peserta didik memiliki motivasi tinggi dengan rata-rata skor 84,2. Kondisi ini sangat mendukung keberhasilan implementasi pembelajaran.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">B</div>
+                <div class="card-body">
+                  <h3>Aktivitas Pembelajaran Variatif</h3>
+                  <p>Pembelajaran dirancang melalui demonstrasi, permainan, praktik, diskusi, LKPD, presentasi, dan refleksi sehingga mengurangi kejenuhan peserta didik.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">C</div>
+                <div class="card-body">
+                  <h3>Kesesuaian Materi dengan Karakteristik PJOK</h3>
+                  <p>Materi bola basket dipelajari melalui praktik langsung sehingga peserta didik memperoleh pengalaman belajar yang autentik dan kontekstual.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">D</div>
+                <div class="card-body">
+                  <h3>Adanya Diferensiasi dan Tutor Sebaya</h3>
+                  <p>Peserta didik yang sudah menguasai keterampilan diberi peran sebagai tutor sebaya untuk membantu teman yang masih mengalami kesulitan. Strategi ini mendukung pembelajaran inklusif dan kolaboratif.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">E</div>
+                <div class="card-body">
+                  <h3>Asesmen dan Tindak Lanjut yang Jelas</h3>
+                  <p>Tersedianya program pengayaan dan remedial memungkinkan guru memberikan layanan pembelajaran sesuai kebutuhan peserta didik setelah evaluasi dilakukan.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. PERUBAHAN YANG AKAN DILAKUKAN -->
+          <div class="refleksi-section">
+            <h2 class="section-subtitle"><i class="fa-solid fa-arrows-rotate"></i> 4. Perubahan yang Akan Dilakukan</h2>
+            <div class="refleksi-grid">
+              <div class="refleksi-card">
+                <div class="card-num">A</div>
+                <div class="card-body">
+                  <h3>Menambahkan Diferensiasi yang Lebih Spesifik</h3>
+                  <p>Meskipun sudah mencantumkan target peserta didik reguler, hambatan belajar, dan berbakat, strategi diferensiasi produk maupun konten belum dijelaskan secara rinci. Ke depan dapat ditambahkan aktivitas berbeda berdasarkan tingkat kemampuan peserta didik.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">B</div>
+                <div class="card-body">
+                  <h3>Memperkuat Penggunaan Teknologi Interaktif</h3>
+                  <p>Video pembelajaran dapat dikembangkan menjadi video analisis gerak atau penggunaan aplikasi perekam video sehingga peserta didik dapat melakukan self-assessment terhadap teknik mereka sendiri.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">C</div>
+                <div class="card-body">
+                  <h3>Menambah Asesmen Autentik Berbasis Portofolio</h3>
+                  <p>Selain rubrik unjuk kerja dan LKPD, peserta didik dapat mengumpulkan video praktik teknik bolabasket sebagai portofolio perkembangan keterampilan.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">D</div>
+                <div class="card-body">
+                  <h3>Menyesuaikan Alokasi Waktu Praktik</h3>
+                  <p>Kegiatan praktik teknik dasar hanya memperoleh sekitar 25 menit. Pada implementasi berikutnya, waktu praktik dapat diperpanjang agar peserta didik memiliki kesempatan lebih banyak untuk menguasai keterampilan gerak.</p>
+                </div>
+              </div>
+              <div class="refleksi-card">
+                <div class="card-num">E</div>
+                <div class="card-body">
+                  <h3>Menambahkan Unsur Permainan Modifikasi</h3>
+                  <p>Agar transfer keterampilan lebih optimal, dapat ditambahkan permainan kecil (small-sided games) sebelum kegiatan presentasi sehingga peserta didik dapat menerapkan teknik dalam situasi pertandingan yang lebih nyata.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 <strong>Rafli Daffa Al Fatih</strong> · PPG Prajabatan Universitas Muhammadiyah Surakarta</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
